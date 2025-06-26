@@ -169,6 +169,8 @@ const playBtn=document.getElementById("playBtn"),audio=document.getElementById("
 playBtn.addEventListener('click',()=>{if(!playing){audio.play();playBtn.textContent='⏸';}else{audio.pause();playBtn.textContent='▶';}playing=!playing;});
 audio.ontimeupdate=()=>{if(audio.duration){let p=audio.currentTime/audio.duration*100;seek.value=p;seek.style.setProperty('--seek-percent',p+'%');}};
 seek.addEventListener('input',()=>{if(audio.duration)audio.currentTime=seek.value/100*audio.duration;});
+
+window.checkPw = checkPw;
 </script>
 </body>
 </html>
