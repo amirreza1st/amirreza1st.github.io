@@ -134,10 +134,10 @@ for(let i=0;i<150;i++){const s=document.createElement('div');s.className='star';
 const buttons=document.querySelectorAll('.buttons button'),overlay=document.getElementById('panelOverlay'),panelTitle=document.getElementById('panelTitle'),panelBody=document.getElementById('panelBody'),closeBtn=document.getElementById('closePanel');
 buttons.forEach(btn=>btn.addEventListener('click',()=>{
   const k=btn.getAttribute('data-panel');
-  if(k==='links'){panelTitle.textContent='ᴍʏ ʟɪɴᴋꜱ';panelBody.innerHTML=`<div class="links-list"><a href="https://t.me/rewhi" target="_blank">ᴛᴇʟᴇɢʀᴀᴍ</a><a href="https://instagram.com/amirrezkhalili" target="_blank">ɪɴꜱᴛᴀɢʀᴀᴍ</a><a href="https://plato.com/amirreza" target="_blank">ᴘʟᴀᴛᴏ</a></div>`;}
-  if(k==='contact'){panelTitle.textContent='ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ';panelBody.innerHTML=`<form action="https://formsubmit.co/amirrezakhalili8813@gmail.com" method="POST"><textarea name="message" rows="4" placeholder="ᴡʀɪᴛᴇ ʏᴏᴜʀ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ᴅʀ. ᴀᴍɪʀʀᴇᴢᴀ..."></textarea><button type="submit">ꜱᴇɴᴅ</button></form>`;}
+  if(k==='links'){panelTitle.textContent='ᴍʏ ʟɪɴᴋꜱ';panelBody.innerHTML=`<div class="links-list"><a href="https://t.me/rewhi" target="_blank">ᴛᴇʟᴇɢʀᴀᴍ</a><a href="https://instagram.com/amirrezkhalili" target="_blank">ɪɴꜱᴛᴀɢʀᴀᴍ</a><a href="https://plato.com/AghaAmirreza" target="_blank">ᴘʟᴀᴛᴏ</a></div>`;}
+  if(k==='contact'){panelTitle.textContent='ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ';panelBody.innerHTML=`<form action="https://formsubmit.co/amirrezakhalili8813@gmail.com" method="POST"><textarea name="message" rows="4" placeholder="write you message to dr. amirreza..."></textarea><button type="submit">ꜱᴇɴᴅ</button></form>`;}
   if(k==='about'){panelTitle.textContent='ᴀʙᴏᴜᴛ ᴍᴇ';panelBody.innerHTML="<p>ɪ'ᴍ ᴀᴍɪʀʀᴇᴢᴀ. ɪ ᴡᴀɴᴛ ᴛᴏ ʙᴇ ᴀ ᴅᴏᴄᴛᴏʀ ᴀɴᴅ ᴄᴏɴᴛɪɴᴜᴇ ᴍʏ ɪɴᴛᴇʀᴇꜱᴛꜱ ᴀʟᴏɴɢ ᴛʜᴇ ᴡᴀʏ</p>";}
-  if(k==='playlist'){panelTitle.textContent='ʟɪꜱᴛᴇɴ ᴏɴ ꜱᴏᴜɴᴅᴄʟᴏᴜᴅ';panelBody.innerHTML=`<div class="links-list"><a href="https://t.me/rewhi" target="_blank">ꜱᴀᴠᴀɢᴇ ᴘʟᴀʏʟɪꜱᴛ</a><a href="https://plato.com/amirreza" target="_blank">ɢᴀɢᴀ ᴘʟᴀʏʟɪꜱᴛ</a></div>`;}
+  if(k==='playlist'){panelTitle.textContent='ʟɪꜱᴛᴇɴ ᴏɴ ꜱᴏᴜɴᴅᴄʟᴏᴜᴅ';panelBody.innerHTML=`<div class="links-list"><a href="https://on.soundcloud.com/qCFOK4DJSzsBIcMYhX" target="_blank">ꜱᴀᴠᴀɢᴇ ᴘʟᴀʏʟɪꜱᴛ</a><a href="https://on.soundcloud.com/bEyX09HrmZWf0X08CP" target="_blank">ɢᴀɢᴀ ᴘʟᴀʏʟɪꜱᴛ</a></div>`;}
 overlay.classList.add('active');
 }));
 closeBtn.addEventListener('click',()=>overlay.classList.remove('active'));
@@ -170,5 +170,5 @@ playBtn.addEventListener('click',()=>{if(!playing){audio.play();playBtn.textCont
 audio.ontimeupdate=()=>{if(audio.duration){let p=audio.currentTime/audio.duration*100;seek.value=p;seek.style.setProperty('--seek-percent',p+'%');}};
 seek.addEventListener('input',()=>{if(audio.duration)audio.currentTime=seek.value/100*audio.duration;});
 </script>
-</body>
+</body> 
 </html>
