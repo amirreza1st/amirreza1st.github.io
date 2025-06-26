@@ -309,11 +309,6 @@ body {
       color: #ddd;
     }
 
-  .star.purple {
-    background: rgba(186, 85, 211, 0.8); /* بنفش ملایم */
-    box-shadow: 0 0 6px rgba(186, 85, 211, 0.7);
-  }
-
   </style>
 </head>
 <body>
@@ -360,24 +355,18 @@ body {
     </div>
   </div>
 
-<script>
-  const background = document.getElementById('background-animation');
-  for (let i = 0; i < 160; i++) {
-    const star = document.createElement('div');
-    star.classList.add('star');
-
-    // 30٪ احتمال ستاره بنفش
-    if (Math.random() < 0.3) {
-      star.classList.add('purple');
+  <script>
+    // ستاره‌های متحرک
+    const background = document.getElementById('background-animation');
+    for (let i = 0; i < 120; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDuration = (Math.random() * 5 + 3) + 's';
+      star.style.opacity = Math.random();
+      background.appendChild(star);
     }
-
-    star.style.top = Math.random() * 100 + '%';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.animationDuration = (Math.random() * 5 + 3) + 's';
-    star.style.opacity = Math.random();
-    background.appendChild(star);
-  }
-</script>
 
     // موزیک‌پلیر
     const playBtn = document.getElementById("playBtn");
