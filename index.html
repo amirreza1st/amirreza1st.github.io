@@ -1,5 +1,462 @@
 <!DOCTYPE html>
-<html>
-  <head><meta charset="UTF-8"><title>سایت شخصی امیررضا</title></head>
-  <body><h1>سلام! این صفحه تست کار می‌کنه 😊</h1></body>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amirreza - Personal Site</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      background-color: black;
+    }
+
+body {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+    #background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 4s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.6); }
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+      z-index: -1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 180px;
+      gap: 30px;
+      color: white;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-box {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    .intro-box h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .intro-box p {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+      background-color: rgba(255,255,255,0.3);
+    }
+
+    .social-icons img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      padding: 12px 24px;
+      border-radius: 30px;
+      border: 2px solid white;
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .buttons button:hover {
+      background: white;
+      color: black;
+      transform: translateY(-3px);
+    }
+
+    .music-block {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      width: 90%;
+      max-width: 440px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.15);
+      z-index: 1;
+    }
+
+    .music-block img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+
+    .music-block .info {
+      flex: 1;
+    }
+
+    .music-block .info strong {
+      font-size: 1rem;
+      display: block;
+    }
+
+    .music-block input[type=range] {
+      width: 100%;
+      margin-top: 6px;
+      accent-color: #7000f0;
+      cursor: pointer;
+      background: linear-gradient(to right, #7000f0 0%, #7001f0 var(--seek-percent), #fff var(--seek-percent), #fff 100%);
+      height: 6px;
+      border-radius: 3px;
+      -webkit-appearance: none;
+    }
+
+    .music-block input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: white;
+      cursor: pointer;
+      border-radius: 50%;
+      border: none;
+      margin-top: -5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    .music-block input[type=range]:hover::-webkit-slider-thumb {
+      background: #7000f0;
+    }
+
+    .music-block button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .music-block button:hover {
+      transform: scale(1.1);
+    }
+
+    audio { display: none; }
+
+    /* پنل ها */
+    .panel-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 10;
+    }
+
+    .panel-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      padding: 30px 40px 40px 40px;
+      color: white;
+      box-shadow: 0 0 30px rgba(255,255,255,0.3);
+      position: relative;
+      transform: translateY(40px);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .panel-overlay.active .panel {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .panel .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      color: white;
+      cursor: pointer;
+      font-size: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s;
+      user-select: none;
+    }
+
+    .panel .close-btn:hover {
+      background: rgba(255,255,255,0.35);
+    }
+
+    .panel h2 {
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 1.8rem;
+      letter-spacing: 1.2px;
+    }
+
+    .panel p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- پس‌زمینه متحرک -->
+  <div id="background-animation"></div>
+
+  <div class="container" id="main-content">
+    <div class="intro-box">
+      <h1>Hi, I'm Amirreza 🌌</h1>
+      <p>
+        Web designer, music lover, and technology enthusiast. Connect with me on social platforms below!
+      </p>
+      <div class="social-icons">
+        <a href="https://t.me/rewhi" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram"></a>
+        <a href="https://instagram.com/amirrezkhalili" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+        <a href="https://soundcloud.com/amirrezam" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145809.png" alt="SoundCloud"></a>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button data-panel="about">ᴀʙᴏᴜᴛ ᴍᴇ</button>
+      <button data-panel="links">ʟɪɴᴋꜱ</button>
+      <button data-panel="playlist">ᴘʟᴀʏʟɪꜱᴛ</button>
+      <button data-panel="contact">ᴄᴏɴᴛᴀᴄᴛ</button>
+    </div>
+  </div>
+
+  <div class="music-block">
+    <img src="https://download1music.ir/wp-content/uploads/2023/09/Unknown-Artist-P-Poori-2023-09-18-21-09.jpg" alt="avatar">
+    <div class="info">
+      <strong>GodPoori - Russian Hook</strong>
+      <input type="range" id="seekBar" value="0" max="100" style="--seek-percent: 0%;">
+    </div>
+    <button id="playBtn" aria-label="Play/Pause">▶</button>
+    <audio id="audio" src="https://xx.sahand-music.ir/Archive/G/GodPoori/Archive/Godpoori%20-%20Russian%20Hook.mp3"></audio>
+  </div>
+
+  <!-- پنل ها -->
+  <div class="panel-overlay" id="panelOverlay">
+    <div class="panel" id="panelContent">
+      <button class="close-btn" id="closePanel" aria-label="Back">&#8962;</button>
+      <h2 id="panelTitle">عنوان پنل</h2>
+      <p id="panelText">محتوای پنل اینجا نمایش داده می‌شود.</p>
+    </div>
+  </div>
+
+  <script>
+    // ستاره‌های متحرک
+    const background = document.getElementById('background-animation');
+    for (let i = 0; i < 120; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDuration = (Math.random() * 5 + 3) + 's';
+      star.style.opacity = Math.random();
+      background.appendChild(star);
+    }
+
+    // موزیک‌پلیر
+    const playBtn = document.getElementById("playBtn");
+    const audio = document.getElementById("audio");
+    const seekBar = document.getElementById("seekBar");
+    let playing = false;
+
+    playBtn.addEventListener("click", () => {
+      if (!playing) {
+        audio.play();
+        playBtn.textContent = "⏸";
+        playing = true;
+      } else {
+        audio.pause();
+        playBtn.textContent = "▶";
+        playing = false;
+      }
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      if (audio.duration) {
+        const progressPercent = (audio.currentTime / audio.duration) * 100;
+        seekBar.value = progressPercent;
+        seekBar.style.setProperty('--seek-percent', progressPercent + '%');
+      }
+    });
+
+    seekBar.addEventListener("input", () => {
+      if(audio.duration){
+        audio.currentTime = (seekBar.value / 100) * audio.duration;
+      }
+    });
+
+    // پنل‌ها
+    const buttons = document.querySelectorAll('.buttons button');
+    const panelOverlay = document.getElementById('panelOverlay');
+    const panelTitle = document.getElementById('panelTitle');
+    const panelText = document.getElementById('panelText');
+    const closePanel = document.getElementById('closePanel');
+    const mainContent = document.getElementById('main-content');
+
+    // داده‌های محتوای پنل هر دکمه
+    const panelData = {
+      about: {
+        title: "ᴀʙᴏᴜᴛ ᴍᴇ",
+        text: "Hi! I'm Amirreza, a passionate web designer and developer. I love creating beautiful, minimalistic designs inspired by space and modern tech. Connect with me to explore the universe of creativity!"
+      },
+
+      playlist: {
+        title: "ᴘʟᴀʏʟɪꜱᴛ",
+        text: "Enjoy my curated music playlist featuring tracks I love and recommend. Feel free to listen and discover new sounds!"
+      },
+            links: {
+        title: "ʟɪɴᴋꜱ",
+        text: "Enjoy my curated music playlist featuring tracks I love and recommend. Feel free to listen and discover new sounds!"
+      },
+      contact: {
+        title: "ᴄᴏɴᴛᴀᴄᴛ",
+        text: "ʏᴏᴜ ᴄᴀɴ ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ ᴛʜʀᴏᴜɢʜ ᴛʜɪꜱ : ᴀᴍɪʀʀᴇᴢᴀᴋʜᴀʟɪʟɪ8813@ɢᴍᴀɪʟ.ᴄᴏᴍ"
+
+      }
+    };
+
+    
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panelKey = btn.getAttribute('data-panel');
+        if (panelData[panelKey]) {
+          panelTitle.textContent = panelData[panelKey].title;
+          panelText.textContent = panelData[panelKey].text;
+          panelOverlay.classList.add('active');
+          mainContent.style.filter = "blur(5px)";
+          mainContent.style.pointerEvents = "none";
+        }
+      });
+    });
+
+    closePanel.addEventListener('click', () => {
+      panelOverlay.classList.remove('active');
+      mainContent.style.filter = "none";
+      mainContent.style.pointerEvents = "auto";
+    });
+
+    // جلوگیری از کلیک روی پشت پنل بسته شدن پنل (برای حالتی که فقط دکمه هوم بسته کند)
+    panelOverlay.addEventListener('click', (e) => {
+      if (e.target === panelOverlay) {
+        // پنل بسته نشود
+      }
+    });
+  </script>
+</body>
 </html>
