@@ -6,11 +6,9 @@
 <title>Dr Amirreza</title>
 <link rel="icon" href="https://png.pngtree.com/png-vector/20230918/ourmid/pngtree-purple-dragon-skull-ornament-tattoo-png-image_10124916.png" type="image/png">
 <style>
-
   @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
   * {margin:0;padding:0;box-sizing:border-box;}
   html,body {height:100%;font-family:'Outfit',sans-serif;overflow-x:hidden;background-color:black;}
-
 body {
   margin: 0;
   padding: 0;
@@ -22,7 +20,6 @@ body {
   font-family: 'Outfit', sans-serif;
   color: white;
 }
-
 body::before {
   content: "";
   position: fixed;
@@ -34,14 +31,10 @@ body::before {
   );
   z-index: -1;
 }
-
-
-
   #background-animation{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-2;overflow:hidden;}
   .star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;opacity:0.8;animation:twinkle 4s infinite ease-in-out;}
   @keyframes twinkle{0%,100%{opacity:0.2;transform:scale(1);}50%{opacity:1;transform:scale(1.6);}}
   body::before{content:"";position:fixed;top:0;left:0;width:100vw;height:100vh;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.8));z-index:-1;}
-
   .container{display:flex;flex-direction:column;align-items:center;padding:40px 20px 180px;gap:30px;color:white;text-align:center;position:relative;z-index:1;}
   .intro-box{background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border-radius:20px;padding:30px;max-width:600px;box-shadow:0 0 20px rgba(255,255,255,0.2);}
   .intro-box h1{font-size:2rem;margin-bottom:15px;}
@@ -50,11 +43,9 @@ body::before {
   .social-icons a{width:42px;height:42px;border-radius:50%;background-color:rgba(255,255,255,0.15);display:flex;justify-content:center;align-items:center;transition:0.3s;}
   .social-icons a:hover{transform:scale(1.1);background-color:rgba(255,255,255,0.3);}
   .social-icons img{width:22px;height:22px;}
-
   .buttons{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin-top:20px;}
   .buttons button{padding:12px 24px;border-radius:30px;border:2px solid rgb(255, 255, 255);background:rgba(255,255,255,0.12);color:white;cursor:pointer;font-size:1rem;transition:0.3s;box-shadow:0 4px 15px rgba(255,255,255,0.1);font-weight:bold;letter-spacing:1px;}
   .buttons button:hover{background:white;color:black;transform:translateY(-3px);}
-
   .music-block{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.05);border-radius:16px;backdrop-filter:blur(10px);padding:12px 16px;display:flex;align-items:center;gap:12px;color:white;width:90%;max-width:440px;box-shadow:0 0 15px rgba(255,255,255,0.15);z-index:1;}
   .music-block img{width:48px;height:48px;border-radius:50%;}
   .music-block .info{flex:1;}
@@ -65,7 +56,6 @@ body::before {
   .music-block button{background:none;border:none;color:white;font-size:1.6rem;cursor:pointer;transition:transform 0.2s;display:flex;align-items:center;justify-content:center;}
   .music-block button:hover{transform:scale(1.1);}
   audio{display:none;}
-
   .panel-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);display:flex;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity 0.4s ease;z-index:10;}
   .panel-overlay.active{opacity:1;pointer-events:auto;}
   .panel{background:rgba(255,255,255,0.1);backdrop-filter:blur(14px);border-radius:20px;width:90%;max-width:600px;padding:30px 40px 40px 40px;color:white;box-shadow:0 0 30px rgba(255,255,255,0.3);position:relative;transform:translateY(40px);opacity:0;transition:transform 0.5s ease,opacity 0.5s ease;}
@@ -75,11 +65,9 @@ body::before {
   .panel h2{margin-bottom:15px;font-weight:600;font-size:1.8rem;letter-spacing:1.2px;}
   .panel .links-list a{display:block;margin-top:12px;color:#fff;text-decoration:none;font-weight:bold;transition:0.3s;}
   .panel .links-list a:hover{color:#7000f0;transform:scale(1.05);}
-
   .user-icon{position:fixed;top:20px;left:20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;justify-content:center;align-items:center;cursor:pointer;z-index:2;transition:background 0.3s;}
   .user-icon:hover{background:rgba(255,255,255,0.3);}
   .user-icon svg{width:24px;height:24px;fill:white;}
-
   .panel form textarea,
   .panel form input[type="password"] {
     width: 100%;
@@ -121,21 +109,41 @@ body::before {
     text-align: right;
     font-weight: bold;
   }
+  .chat-history {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+  .chat-message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .chat-message.user {
+    background: rgba(255, 255, 255, 0.15);
+    text-align: right;
+  }
+  .chat-message.bot {
+    background: rgba(112, 0, 240, 0.2);
+    text-align: left;
+  }
 @media (max-width: 768px) {
   .user-icon {
     top: 16px;
     left: auto;
     right: 16px;
   }
-
   .container {
-    padding-top: 100px; /* فاصله بیشتر از بالا تا دکمه روی باکس نیفته */
+    padding-top: 100px;
   }
 }
 .shop-icon {
   position: fixed;
   top: 20px;
-  left: 70px; /* فاصله از آیکون VIP */
+  left: 70px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -155,13 +163,11 @@ body::before {
   height: 24px;
   fill: white;
 }
-
 .product-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
-
 .product {
   background: rgba(255, 255, 255, 0.06);
   border-radius: 14px;
@@ -197,12 +203,10 @@ body::before {
     grid-template-columns: 1fr;
   }
 }
-
 .store-item {
   position: relative;
   overflow: hidden;
 }
-
 .store-btn {
   position: absolute;
   bottom: 10px;
@@ -219,25 +223,19 @@ body::before {
   transition: background-color 0.3s ease;
   z-index: 2;
 }
-
 .store-btn:hover {
   background-color: #0cc;
 }
-
-
 </style>
 </head>
 <body>
 <div id="background-animation"></div>
-
 <div class="user-icon" id="userIcon">
   <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
 </div>
 <div class="shop-icon" id="shopIcon">
   <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 14h9.68l1.45-7H5.7l1.46 7zM3 4h2l3.6 7.59-1.35 2.44C6.52 14.37 7.48 16 9 16h10v-2H9.42c-.14 0-.25-.11-.25-.25l.03-.12L10.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21 6H6.21l-.94-2H3z"/></svg>
 </div>
-
-
 <div class="container" id="main-content">
   <div class="intro-box">
     <h1>ʜɪ, ɪ'ᴍ ᴀᴍɪʀʀᴇᴢᴀ 🧸</h1>
@@ -252,10 +250,9 @@ body::before {
     <button data-panel="about">ᴀʙᴏᴜᴛ ᴍᴇ</button>
     <button data-panel="links">ʟɪɴᴋꜱ</button>
     <button data-panel="playlist">ᴘʟᴀʏʟɪꜱᴛ</button>
-    <button data-panel="contact">ᴄᴏɴᴛᴀᴄᴛ</button>
+    <button data-panel="chatbot">ᴄʜᴀᴛʙᴏᴛ</button>
   </div>
 </div>
-
 <div class="music-block">
   <img src="https://download1music.ir/wp-content/uploads/2023/09/Unknown-Artist-P-Poori-2023-09-18-21-09.jpg">
   <div class="info">
@@ -265,7 +262,6 @@ body::before {
   <button id="playBtn">▶</button>
   <audio id="audio" src="https://xx.sahand-music.ir/Archive/G/GodPoori/Archive/Godpoori%20-%20Russian%20Hook.mp3"></audio>
 </div>
-
 <div class="panel-overlay" id="panelOverlay">
   <div class="panel" id="panelContent">
     <button class="close-btn" id="closePanel">✖</button>
@@ -273,7 +269,6 @@ body::before {
     <div id="panelBody"></div>
   </div>
 </div>
-
 <script>
 // انیمیشن ستاره‌ها و پَنِل
 const bg = document.getElementById('background-animation');
@@ -286,22 +281,26 @@ for(let i=0;i<150;i++){
   if(Math.random()<0.3)s.style.background='rgba(186,85,211,0.8)';
   bg.appendChild(s);
 }
-
 const buttons=document.querySelectorAll('.buttons button'),
-  overlay=document.getElementById('panelOverlay'),
-  panelTitle=document.getElementById('panelTitle'),
-  panelBody=document.getElementById('panelBody'),
-  closeBtn=document.getElementById('closePanel');
-
+      overlay=document.getElementById('panelOverlay'),
+      panelTitle=document.getElementById('panelTitle'),
+      panelBody=document.getElementById('panelBody'),
+      closeBtn=document.getElementById('closePanel');
 buttons.forEach(btn=>btn.addEventListener('click',()=>{
   const k=btn.getAttribute('data-panel');
   if(k==='links'){
     panelTitle.textContent='ᴍʏ ʟɪɴᴋꜱ';
     panelBody.innerHTML=`<div class="links-list"><a href="https://t.me/rewhi" target="_blank">ᴛᴇʟᴇɢʀᴀᴍ</a><a href="https://instagram.com/amirrezkhalili" target="_blank">ɪɴꜱᴛᴀɢʀᴀᴍ</a><a href="https://plato.com/AghaAmirreza" target="_blank">ᴘʟᴀᴛᴏ</a></div>`;
   }
-  if(k==='contact'){
-    panelTitle.textContent='ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ';
-    panelBody.innerHTML=`<form action="https://formsubmit.co/amirrezakhalili8813@gmail.com" method="POST"><textarea name="message" rows="4" placeholder="write you message to dr. amirreza..."></textarea><button type="submit">ꜱᴇɴᴅ</button></form>`;
+  if(k==='chatbot'){
+    panelTitle.textContent='ᴄʜᴀᴛʙᴏᴛ';
+    panelBody.innerHTML=`
+      <div class="chat-history" id="chatHistory"></div>
+      <form id="chatForm" onsubmit="sendMessage(event)">
+        <textarea id="chatInput" rows="4" placeholder="پیام خود را بنویسید..."></textarea>
+        <button type="submit">ارسال</button>
+      </form>
+    `;
   }
   if(k==='about'){
     panelTitle.textContent='ᴀʙᴏᴜᴛ ᴍᴇ';
@@ -313,10 +312,8 @@ buttons.forEach(btn=>btn.addEventListener('click',()=>{
   }
   overlay.classList.add('active');
 }));
-
 closeBtn.addEventListener('click',()=>overlay.classList.remove('active'));
 overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.classList.remove('active');});
-
 document.getElementById('userIcon').addEventListener('click',()=>{
   panelTitle.textContent='ᴀᴄᴄᴇꜱꜱ ᴛᴏ ᴠɪᴘ ᴘᴀɴᴇʟ';
   panelBody.innerHTML=`
@@ -328,8 +325,6 @@ document.getElementById('userIcon').addEventListener('click',()=>{
   `;
   overlay.classList.add('active');
 });
-
-
 function checkPw(e){
   if(e) e.preventDefault();
   const v=document.getElementById('pw').value.trim();
@@ -341,7 +336,6 @@ function checkPw(e){
     err.textContent='کــد ورود به پــنل ویـژه درسـت نیسـت';
   }
 }
-
 const playBtn=document.getElementById("playBtn"),
       audio=document.getElementById("audio"),
       seek=document.getElementById("seekBar");
@@ -361,7 +355,6 @@ audio.ontimeupdate=()=>{
 seek.addEventListener('input',()=>{
   if(audio.duration)audio.currentTime=seek.value/100*audio.duration;
 });
-
 document.getElementById('shopIcon').addEventListener('click', () => {
   panelTitle.textContent = '🛒 ᴍʏ ꜱᴛᴏʀᴇ';
   panelBody.innerHTML = `
@@ -404,8 +397,9 @@ document.getElementById('shopIcon').addEventListener('click', () => {
       </div>
     </div>
   `;
-
-  // اضافه کردن دکمه + به هر آیتم فروشگاه
+  overlay.classList.add('active');
+});
+// اضافه کردن دکمه + به هر آیتم فروشگاه
 document.querySelectorAll('.store-item').forEach(item => {
   const btn = document.createElement('button');
   btn.className = 'store-btn';
@@ -413,12 +407,74 @@ document.querySelectorAll('.store-item').forEach(item => {
   btn.onclick = () => window.open('https://t.me/rewhi', '_blank');
   item.appendChild(btn);
 });
-
-  overlay.classList.add('active'); // پنل رو باز کن
-});
-
-
-
+// چت‌بات با OpenRouter API
+async function sendMessage(e) {
+  e.preventDefault();
+  const chatInput = document.getElementById('chatInput');
+  const chatHistory = document.getElementById('chatHistory');
+  const message = chatInput.value.trim();
+  
+  if (!message) return;
+  // اضافه کردن پیام کاربر به تاریخچه
+  const userMessage = document.createElement('div');
+  userMessage.className = 'chat-message user';
+  userMessage.textContent = message;
+  chatHistory.appendChild(userMessage);
+  // پاک کردن ورودی
+  chatInput.value = '';
+  // نمایش پیام "در حال بارگذاری"
+  const loadingMessage = document.createElement('div');
+  loadingMessage.className = 'chat-message bot';
+  loadingMessage.textContent = 'در حال بارگذاری...';
+  chatHistory.appendChild(loadingMessage);
+  chatHistory.scrollTop = chatHistory.scrollHeight;
+  try {
+    // استفاده از پراکسی برای رفع مشکل CORS (فقط برای تست)
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const apiUrl = 'https://openrouter.ai/api/v1/chat/completions';
+    const response = await fetch(proxyUrl + apiUrl, {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer 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',
+        'Content-Type': 'application/json',
+        'HTTP-Referer': window.location.href, // برای OpenRouter
+        'X-Title': 'Amirreza Fitness Chatbot' // برای OpenRouter
+      },
+      body: JSON.stringify({
+        model: 'mistralai/mixtral-8x7b-instruct',
+        messages: [
+          { role: 'system', content: 'You are a fitness chatbot helping a 16-year-old bodybuilder named Amirreza. Answer in Persian and provide helpful fitness advice.' },
+          { role: 'user', content: message }
+        ]
+      })
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    // حذف پیام "در حال بارگذاری"
+    loadingMessage.remove();
+    // اضافه کردن پاسخ ربات به تاریخچه
+    const botResponse = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content
+      ? data.choices[0].message.content
+      : 'پاسخ معتبر دریافت نشد.';
+    const botMessage = document.createElement('div');
+    botMessage.className = 'chat-message bot';
+    botMessage.textContent = botResponse;
+    chatHistory.appendChild(botMessage);
+    // اسکرول به پایین تاریخچه
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+  } catch (error) {
+    // حذف پیام "در حال بارگذاری"
+    loadingMessage.remove();
+    const errorMessage = document.createElement('div');
+    errorMessage.className = 'chat-message bot';
+    errorMessage.textContent = `خطا: ${error.message}. لطفاً دوباره امتحان کنید یا API Key را بررسی کنید.`;
+    chatHistory.appendChild(errorMessage);
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+    console.error('Chatbot error:', error);
+  }
+}
 </script>
 </body>
 </html>
